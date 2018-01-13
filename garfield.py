@@ -1,11 +1,21 @@
-import io
 import os
 import urllib.request
 from datetime import date, timedelta
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+#   _____  _____           _____  _____ ______   __  __ ______  #
+#  |  __ \|  __ \    /\   |_   _|/ ____|  ____| |  \/  |  ____| #
+#  | |__) | |__) |  /  \    | | | (___ | |__    | \  / | |__    #
+#  |  ___/|  _  /  / /\ \   | |  \___ \|  __|   | |\/| |  __|   #
+#  | |    | | \ \ / ____ \ _| |_ ____) | |____  | |  | | |____  #
+#  |_|    |_|  \_/_/    \_|_____|_____/|______| |_|  |_|______| #
+#                                                               #
+#  Made by Anurag (https://github.com/SourceNull)               #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+                                                             
+                                                             
+
 # to get a date
-
-
 def daterange(start, end):
     for x in range(int((end - start).days)):
         yield start + timedelta(x)
