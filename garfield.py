@@ -10,7 +10,7 @@ from datetime import date, timedelta
 #  | |    | | \ \ / ____ \ _| |_ ____) | |____  | |  | | |____  #
 #  |_|    |_|  \_/_/    \_|_____|_____/|______| |_|  |_|______| #
 #                                                               #
-#  Made by Anurag (https://github.com/SourceNull)               #
+#  Made by Anurag (https://github.com/wafflemelon)               #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
                                                              
                                                              
