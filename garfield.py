@@ -32,6 +32,11 @@ todays_date = date.today()
 # this has to be set because garfield started on 1978/6/19
 starting_date = todays_date.replace(year=1978, month=6, day=19)
 
+for some_date in daterange (starting_date, todays_date):
+    dir_date = f"{some_date.year}"
+    dir = f"./comics/{dir_date}"
+    if not os.path.exists(dir):
+        os.makedirs(dir)
 
 for some_date in daterange(starting_date, todays_date):
     reqd_date = f"{some_date.year}-{some_date.month:02}-{some_date.day:02}"
@@ -39,13 +44,13 @@ for some_date in daterange(starting_date, todays_date):
     # but will print "1" instead of "01"
     image_url = f"https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/{some_date.year}/{reqd_date}.gif"
 
-    file = f"{dir}{str(reqd_date)}.gif"
+    file = f"./comics/{some_date.year}/{str(reqd_date)}.gif"
     if not os.path.exists(file):
         with urllib.request.urlopen(image_url) as im:
-            print(f"Downloading:: {image_url}")
-            save_file = open(f"{dir}{str(reqd_date)}.gif", "w" + "b")
+            print(f"Downloading: {image_url}")
+            save_file = open(f"./comics/{some_date.year}/{str(reqd_date)}.gif", "w" + "b")
             save_file.write(im.read())
             save_file.close()
 
-print("All comics have been downloaded")
-print("thanks for using")
+print("All Garfield comics have been downloaded.")
+print("Thanks for using.")
