@@ -33,8 +33,7 @@ todays_date = date.today()
 starting_date = todays_date.replace(year=1978, month=6, day=19)
 
 for some_date in daterange (starting_date, todays_date):
-    dir_date = f"{some_date.year}"
-    dir = f"./comics/{dir_date}"
+    dir = f"./comics/{some_date.year}"
     if not os.path.exists(dir):
         os.makedirs(dir)
 
