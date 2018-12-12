@@ -12,20 +12,16 @@ from datetime import date, timedelta
 #                                                               #
 #  Made by Anurag (https://github.com/wafflemelon)               #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-                                                             
-                                                             
 
 # to get a date
 def daterange(start, end):
-    for x in range(int((end - start).days)):
+    for x in range(int((end - start).days)+1):
         yield start + timedelta(x)
-
 
 # to create a directory because it will be a mess if not organized
 dir = "./comics/"
 if not os.path.exists(dir):
     os.makedirs(dir)
-
 
 todays_date = date.today()
 
@@ -40,7 +36,6 @@ for some_date in daterange (starting_date, todays_date):
     # image_url = f"https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/{some_date.year}/{some_date}.gif"
     # but will print "1" instead of "01"
     image_url = f"https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/{some_date.year}/{reqd_date}.gif"
-
     file = f"./comics/{some_date.year}/{str(reqd_date)}.gif"
     if not os.path.exists(file):
         with urllib.request.urlopen(image_url) as im:
