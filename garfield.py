@@ -18,7 +18,7 @@ def daterange(start, end):
     for x in range(int((end - start).days)+1):
         yield start + timedelta(x)
 
-# This is to create a directory, because the working directory will be a mess if it isn't organized
+# This is to create a subdirectory, because the working directory will be a mess if it isn't organized
 dir = "./comics/"
 if not os.path.exists(dir):
     os.makedirs(dir)
