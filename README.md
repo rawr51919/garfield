@@ -1,5 +1,5 @@
 # Garfield Comic Downloader Python Script
-A script to download all the Garfield comic strips found at ==> https://garfield.com.
+A script to download all the Garfield comic strips found at https://garfield.com.
 
 It downloads all the comics from June 19th, 1978 to whatever today's date is.
  # Requirements:
