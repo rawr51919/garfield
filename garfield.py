@@ -18,14 +18,14 @@ def daterange(start, end):
     for x in range(int((end - start).days)+1):
         yield start + timedelta(x)
 
-# to create a directory because it will be a mess if not organized
+# This is to create a directory, because the working directory will be a mess if it isn't organized
 dir = "./comics/"
 if not os.path.exists(dir):
     os.makedirs(dir)
 
 todays_date = date.today()
 
-# this has to be set because garfield started on 1978/6/19
+# This has to be set because Garfield started on 1978/6/19
 starting_date = todays_date.replace(year=1978, month=6, day=19)
 
 for some_date in daterange (starting_date, todays_date):
