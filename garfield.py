@@ -33,8 +33,6 @@ for some_date in daterange (starting_date, todays_date):
     if not os.path.exists(dir):
         os.makedirs(dir)
     reqd_date = f"{some_date.year}-{some_date.month:02}-{some_date.day:02}"
-    # image_url = f"https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/{some_date.year}/{some_date}.gif"
-    # but will print "1" instead of "01"
     image_url = f"https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/{some_date.year}/{reqd_date}.gif"
     file = f"./comics/{some_date.year}/{str(reqd_date)}.gif"
     if not os.path.exists(file):
