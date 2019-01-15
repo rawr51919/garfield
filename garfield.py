@@ -25,7 +25,7 @@ if not os.path.exists(dir):
 
 todays_date = date.today()
 
-# This has to be set because Garfield started on 1978/6/19
+# Set this because Garfield started on 1978/6/19
 starting_date = todays_date.replace(year=1978, month=6, day=19)
 
 for some_date in daterange (starting_date, todays_date):
