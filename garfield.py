@@ -18,7 +18,7 @@ def daterange(start, end):
     for x in range(int((end - start).days)+1):
         yield start + timedelta(x)
 
-# Set this because Garfield started on 1978/6/19
+# Set Garfield's start date and today's date
 todays_date = date.today()
 starting_date = todays_date.replace(year=1978, month=6, day=19)
 
