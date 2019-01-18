@@ -13,19 +13,13 @@ from datetime import date, timedelta
 #  Made by Anurag (https://github.com/wafflemelon)               #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# to get a date
+# Get the date range
 def daterange(start, end):
     for x in range(int((end - start).days)+1):
         yield start + timedelta(x)
 
-# Create a subdirectory, otherwise the working directory will be a mess if it isn't organized
-dir = "./comics/"
-if not os.path.exists(dir):
-    os.makedirs(dir)
-
-todays_date = date.today()
-
 # Set this because Garfield started on 1978/6/19
+todays_date = date.today()
 starting_date = todays_date.replace(year=1978, month=6, day=19)
 
 for some_date in daterange (starting_date, todays_date):
@@ -34,11 +28,11 @@ for some_date in daterange (starting_date, todays_date):
         os.makedirs(dir)
     reqd_date = f"{some_date.year}-{some_date.month:02}-{some_date.day:02}"
     image_url = f"https://d1ejxu6vysztl5.cloudfront.net/comics/garfield/{some_date.year}/{reqd_date}.gif"
-    file = f"./comics/{some_date.year}/{str(reqd_date)}.gif"
+    file = f"{dir}/{str(reqd_date)}.gif"
     if not os.path.exists(file):
         with urllib.request.urlopen(image_url) as im:
             print(f"Downloading: {image_url}")
-            save_file = open(f"./comics/{some_date.year}/{str(reqd_date)}.gif", "w" + "b")
+            save_file = open(f"{dir}/{str(reqd_date)}.gif", "w" + "b")
             save_file.write(im.read())
             save_file.close()
 
