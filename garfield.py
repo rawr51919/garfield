@@ -36,5 +36,4 @@ for some_date in daterange(starting_date, todays_date):
             save_file.write(im.read())
             save_file.close()
 
-print("All Garfield comics have been downloaded.")
-print("Thanks for using.")
+print("All Garfield comics have been downloaded.\nThanks for using.")
