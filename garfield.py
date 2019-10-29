@@ -22,7 +22,7 @@ def daterange(start, end):
 todays_date = date.today()
 starting_date = todays_date.replace(year=1978, month=6, day=19)
 
-for some_date in daterange (starting_date, todays_date):
+for some_date in daterange(starting_date, todays_date):
     dir = f"./comics/{some_date.year}"
     if not os.path.exists(dir):
         os.makedirs(dir)
