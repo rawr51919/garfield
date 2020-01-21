@@ -23,7 +23,7 @@ todays_date = date.today()
 starting_date = todays_date.replace(year=1978, month=6, day=19)
 
 for some_date in daterange(starting_date, todays_date):
-    dir = f"./comics/{some_date.year}"
+    dir = f"./comics/Garfield/{some_date.year}"
     if not os.path.exists(dir):
         os.makedirs(dir)
     reqd_date = f"{some_date.year}-{some_date.month:02}-{some_date.day:02}"
