@@ -18,10 +18,12 @@ def daterange(start, end):
     for x in range(int((end - start).days)+1):
         yield start + timedelta(x)
 
-# Set Garfield's start date and today's date
+# Set Garfield's start date (6/19/1978) and today's date
 todays_date = date.today()
 starting_date = todays_date.replace(year=1978, month=6, day=19)
 
+# check if the folders for each publication year up to this point
+# exist, and if not, create them. start downloading them afterwards
 for some_date in daterange(starting_date, todays_date):
     dir = f"./comics/Garfield/{some_date.year}"
     if not os.path.exists(dir):
