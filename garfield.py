@@ -10,7 +10,7 @@ from datetime import date, timedelta
 #  | |    | | \ \ / ____ \ _| |_ ____) | |____  | |  | | |____  #
 #  |_|    |_|  \_/_/    \_|_____|_____/|______| |_|  |_|______| #
 #                                                               #
-#  Made by Anurag (https://github.com/wafflemelon)               #
+#  Made by Anurag (https://github.com/wafflemelon)              #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Get the date range
@@ -24,6 +24,8 @@ starting_date = todays_date.replace(year=1978, month=6, day=19)
 
 # check if the folders for each publication year up to this point
 # exist, and if not, create them. start downloading them afterwards
+# reqd_date is how it is due to the date structure on the image links
+# using a slightly different date structure than what Python generally uses
 for some_date in daterange(starting_date, todays_date):
     dir = f"./comics/Garfield/{some_date.year}"
     if not os.path.exists(dir):
