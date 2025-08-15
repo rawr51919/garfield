@@ -34,8 +34,8 @@ for some_date in daterange(starting_date, todays_date):
     if not os.path.exists(dir):
         os.makedirs(dir)
 
-    reqd_date = f"{some_date.year:02}{some_date.month:02}{some_date.day:02}"
-    image_url = f"https://picayune.uclick.com/comics/ga/{some_date.year:04}/ga{reqd_date}.gif"
+    reqd_date = f"{some_date.year % 100}{some_date.month:02}{some_date.day:02}"
+    image_url = f"https://picayune.uclick.com/comics/ga/{some_date.year}/ga{reqd_date}.gif"
     file_path = f"{dir}/ga{reqd_date}.gif"
 
     if not os.path.exists(file_path):
