@@ -1,0 +1,68 @@
+name: Build and Release Python Script
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Set to "main" for full release; else pre-release'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up latest Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Compile Python script
+        run: |
+          mkdir -p out
+          # Replace garfield.py with your actual script filename
+          cp garfield.py out/
+          python -m compileall -b -f garfield.py
+          mv garfield.pyc out/
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-files
+          path: out/*
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v5
+        with:
+          name: python-files
+          path: ./python
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          prerelease: ${{ github.event.inputs.release_type != 'main' }}
+          files: |
+            python/garfield.py
+            python/garfield.pyc
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
