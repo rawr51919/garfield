@@ -41,7 +41,7 @@ for some_date in daterange(starting_date, todays_date):
     if not os.path.exists(file_path):
         try:
             with urllib.request.urlopen(image_url) as im:
-                print(f"Downloading: {image_url}")
+                print(f"Downloading {image_url} into {file_path}")
                 with open(file_path, "wb") as save_file:
                     save_file.write(im.read())
         except HTTPError as e:
