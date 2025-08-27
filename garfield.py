@@ -30,13 +30,13 @@ starting_date = date(1978, 6, 19)
 # 2025 edit: ensure we use a new URL as the original has gone defunct
 # and do error checking if the requested date doesn't exist
 for some_date in daterange(starting_date, todays_date):
-    dir = f"./comics/Garfield/{some_date.year}"
+    dir = f"./comics/Garfield/{some_date.year}/{some_date.month}"
     if not os.path.exists(dir):
         os.makedirs(dir)
 
     reqd_date = f"{some_date.year % 100}{some_date.month:02}{some_date.day:02}"
     image_url = f"https://picayune.uclick.com/comics/ga/{some_date.year}/ga{reqd_date}.gif"
-    file_path = f"{dir}/ga{reqd_date}.gif"
+    file_path = f"{dir}/{some_date.day}-{some_date.month}-{some_date.year}.gif"
 
     if not os.path.exists(file_path):
         try:
